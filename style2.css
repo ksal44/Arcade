@@ -1,0 +1,136 @@
+body {
+	margin: 0;
+    margin-left: 20px; 
+	background: url("https://wallpaperaccess.com/full/2726356.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+	
+h1{
+	color: crimson;
+}
+
+.board {
+	width: 600px;
+	height: 600px;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+	grid-template-columns: repeat(3, auto);
+    margin-left: 250px;
+    margin-top: 60px;
+	margin-bottom: 20px;
+
+}
+
+.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	border: 1px solid crimson;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+    /* font-size: 10vh;
+    padding: 10px; */
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+ul {
+	color: lightskyblue;	
+}
+
+#playerStartMessage {
+	color: lightskyblue;
+}
+
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) {
+	border-top: none;
+}
+
+.cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) {
+	border-left: none;
+}
+
+.cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) {
+	border-right: none;
+}
+
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+	border-bottom: none;
+}
+
+.cell.x, .cell.circle {
+	cursor: not-allowed;
+}
+
+:root {
+	--cell-size: 200px;
+    --color: #81c3fd;
+    --color-set: #0275d8;
+	--l: 10px;
+}
+
+
+.cell.x, .cell.circle {
+	cursor: not-allowed;
+}
+
+/* for cross */
+.board.x .cell:not(.circle):not(.x):hover {
+	background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+
+/* for cross (set) */
+.cell:not(.circle).x {
+	background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+
+/* for circle */
+.board.circle .cell:not(.circle):not(.x):hover {	
+	background: radial-gradient(var(--color) 60%, transparent 60%);
+}
+
+/* for circle (set) */
+.cell:not(.x).circle {
+	background: radial-gradient(var(--color-set) 60%, transparent 60%);
+
+}
+
+#winningMessageText{
+	font-size: 36px;
+	font-family: cursive;
+	color: crimson;
+	display: grid;
+	justify-content: center;
+}
+
+footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	vertical-align: bottom;
+	padding-top: 20px;
+}
+
